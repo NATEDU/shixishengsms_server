@@ -1,0 +1,63 @@
+
+<meta charset="utf-8">
+
+<head>
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Optional Bootstrap Theme -->
+
+  <link href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+
+
+
+<!-- Documentation extras -->
+
+<link href="http://getbootstrap.com/assets/css/docs.min.css" rel="stylesheet">
+</head>
+
+<body style="margin-left:20px;">
+
+
+<div class="bs-docs-header" id="content">
+      <div class="container">
+        <h1>欢迎来到实习生智能短信测试页面</h1>
+
+        <div id="carbonads-container"></div>
+
+      </div>
+    </div>
+
+
+<form action="/new" method="POST" style="left:20px;">
+<div style="left:20px;">
+{%csrf_token%}
+<div class="input-group input-group-lg">
+  <span class="input-group-addon" id="sizing-addon1">@</span>
+  <input type="text" style="width:200px;" class="form-control" placeholder="姓名" aria-describedby="sizing-addon1" name="name">
+</div>
+
+<div class="input-group input-group-lg">
+  <span class="input-group-addon" id="sizing-addon1">@</span>
+  <input type="text" class="form-control" style="width:200px;" placeholder="电话" aria-describedby="sizing-addon1" name="phone">
+</div>
+
+<div class="input-group input-group-lg">
+         <textarea class="form-control" style="width:400px;height:300px;" name="content" id="message" required="required"></textarea>
+            </div>
+
+<button> 提交 </button>
+</div>
+</form>
+{%for a in all_sms%}
+<div class="bs-callout bs-callout-danger" id="callout-glyphicons-empty-only">
+    <h4>{{a.id}}|{{a.name}}</h4>
+    <p>{{a.phone_hide}}*****</p>
+  </div>
+{%endfor%}
+
+
+
+</body>
+
+
